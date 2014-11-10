@@ -10,8 +10,8 @@
                                                 <li><a href="/bounties" title="Bonuses for uploading the most wanted themes">Bounties</a></li>
                                     </ul>
                                         <ul class="nav secondary-nav">
-                                                    <li class="active"><a href="<?php echo base_url('/signup')?>"><span style="padding-left: 17px; background: transparent url('//d85wutc1n854v.cloudfront.net/live/imgs/lock_icon.png') no-repeat 0px center;">Sign in</span></a></li>
-                                                <li><a href="<?php echo base_url('/signup')?>">Sign up</a></li>
+                                                    <li class="active"><a href="<?php echo base_url('/user')?>"><span style="padding-left: 17px; background: transparent url('//d85wutc1n854v.cloudfront.net/live/imgs/lock_icon.png') no-repeat 0px center;">Sign in</span></a></li>
+                                                <li><a href="<?php echo base_url('/user')?>">Sign up</a></li>
                                         </ul>
                             </div>
                     </div>

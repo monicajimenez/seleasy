@@ -12,19 +12,25 @@
                         <div class="span16">
                             <div id="signin">
                                 <div class="title">Already a member? Sign in:</div>
-                                <form action="<?php echo base_url('/dashboard')?>" method="post">
+                                <form action="<?php echo base_url('/user/signin')?>" name="signin" method="post">
                                     <input type="hidden" name="next" value="/">
                                     <fieldset>
                                             <div class="clearfix">
+                                            <label for="error"></label>
+                                            <div class="input">
+                                                <?php if(isset($form_name) && $form_name =='signin') echo validation_errors();?>
+                                            </div>
+                                            </div>
+                                            <div class="clearfix">
                                             <label for="iusername"><span>Username:</span></label>
                                             <div class="input">
-                                                <input tabindex="1" id="iusername" name="username" label="Username" value="" type="text">
+                                                <input tabindex="1" id="iusername" name="username_signin" label="Username" value="" type="text">
                                             </div>
                                         </div>
                                         <div class="clearfix">
                                             <label for="ipassword"><span>Password:</span></label>
                                             <div class="input">
-                                                <input tabindex="2" id="ipassword" name="password" label="Password" value="" type="password">
+                                                <input tabindex="2" id="ipassword" name="password_signin" label="Password" value="" type="password">
                                             </div>
                                         </div>
 
@@ -39,36 +45,40 @@
                             <div id="signup">
                                 <div class="title">Create a new account:</div>
 
-                                <form action="<?php echo base_url('/signup/createUser/')?>" method="post" class="form-stacked">
+                                <form action="<?php echo base_url('/user/create/')?>" name="signup" method="post" class="form-stacked">
                                     <fieldset>
                                         <div class="clearfix">
-                                            <label for="error">Error</label>
+                                            <label for="error"></label>
                                             <div class="input">
-                                                <input id="isignup_username" tabindex="5" name="username" label="Username" value="" type="text">
-                                                <p><?php if (isset($username)) echo $username;?></p>
-                                                <p><?php if (isset($password)) echo $password;?></p>
-                                                <p><?php if (isset($email)) echo $email;?></p>
+                                                <?php if(isset($form_name) && $form_name =='signup')  echo validation_errors();?>
                                             </div>
                                         </div>
                                         <div class="clearfix">
                                             <label for="isignup_username">Username:</label>
                                             <div class="input">
-                                                <input id="isignup_username" tabindex="5" name="username" label="Username" value="" type="text">
-                                                <span class="help-block">May contain letters, digits, dashes and underscores, and should be between 2 and 20 characters long.</span>
+                                                <input id="isignup_username" tabindex="5" name="username" label="Username"  value="<?php echo set_value('username'); ?>" type="text">
+                                                <span class="help-block">May contain letters, digits, dashes and underscores, and should be between 2 and 50 characters long.</span>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix">
+                                            <label for="isignup_name">Name:</label>
+                                            <div class="input">
+                                                <input id="isignup_name" tabindex="5" name="name" label="Name"  value="<?php echo set_value('name'); ?>" type="text">
+                                                <span class="help-block">May contain letters, dashes and periods, and should be between 2 and 50 characters long.</span>
                                             </div>
                                         </div>
                                             <div class="clearfix">
                                             <label for="isignup_email">Email address:</label>
                                             <div class="input">
-                                                <input id="isignup_email" tabindex="6" name="email" label="Email address" value="" type="text">
-                                                <span class="help-block"><strong>Type carefully.</strong> You will be sent a confirmation email.</span>
+                                                <input id="isignup_email" tabindex="6" name="email" label="Email address"  value="<?php echo set_value('email'); ?>" type="text">
+                                                <span class="help-block"> Should be at most 50 characters longs.<strong>Type carefully.</strong> You will be sent a confirmation email.</span>
                                             </div>
                                         </div>
                                             <div class="clearfix">
                                             <label for="isignup_password">Password:</label>
                                             <div class="input">
                                                 <input id="isignup_password" tabindex="7" name="password" label="Password" value="" type="password">
-                                                <span class="help-block">The longer the better. Include numbers for protein.</span>
+                                                <span class="help-block">Should be at least 6 characters long. The longer the better. Include numbers for protein.</span>
                                             </div>
                                         </div>
                                         <div class="clearfix">
